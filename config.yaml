@@ -1,0 +1,4 @@
+---
+ExecutedDirs:
+  - "testdata/terraform/environments/test_1/"
+  - "testdata/terraform/environments/test_2/"
