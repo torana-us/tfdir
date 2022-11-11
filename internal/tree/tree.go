@@ -83,10 +83,11 @@ func (n *Node) Add(others ...*Node) *Node {
 	return n
 }
 
-func MakeTreeMap(dirs []Path) map[string]*Node {
+func MakeTreeMap(dirs []string) map[string]*Node {
 	tree_map := map[string]*Node{}
 
-	for _, path := range dirs {
+	for _, p := range dirs {
+		path := NewPath(p)
 		if path.Value == "" {
 			continue
 		}
@@ -96,7 +97,7 @@ func MakeTreeMap(dirs []Path) map[string]*Node {
 		tree, ok := tree_map[h]
 
 		if !ok {
-			tree = NewTree(path)
+			tree = NewTree(*path)
 			tree_map[h] = tree
 		}
 
@@ -127,6 +128,17 @@ func (n *Node) allPathHelper(prefix string) []Path {
 
 func (n *Node) AllPath() []Path {
 	return n.allPathHelper("")
+}
+
+func (n *Node) AllPathString() []string {
+	paths := n.AllPath()
+	r := make([]string, len(paths))
+
+	for i, p := range paths {
+		r[i] = p.Value
+	}
+
+	return r
 }
 
 func (n *Node) Search(path Path) (*Node, bool) {

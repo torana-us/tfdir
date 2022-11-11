@@ -119,14 +119,14 @@ func Test_NewTree(t *testing.T) {
 }
 
 func Test_MakeTreeMap(t *testing.T) {
-	terraform_path := *NewPath("terraform/environments/")
-	module_path := *NewPath("modules/")
-	dirs := []Path{
+	terraform_path := "terraform/environments/"
+	module_path := "modules/"
+	dirs := []string{
 		terraform_path,
 		module_path,
 	}
-	expected_terraform_tree := NewTree(terraform_path)
-	expected_module_tree := NewTree(module_path)
+	expected_terraform_tree := NewTree(*NewPath(terraform_path))
+	expected_module_tree := NewTree(*NewPath(module_path))
 
 	tree_map := MakeTreeMap(dirs)
 
@@ -162,15 +162,15 @@ func Test_AllPath_Simple(t *testing.T) {
 }
 
 func Test_AllPath(t *testing.T) {
-	dirs := []Path{
-		*NewPath("a/b/c"),
-		*NewPath("a/b/d"),
-		*NewPath("a/g"),
+	dirs := []string{
+		"a/b/c",
+		"a/b/d",
+		"a/g",
 	}
 
 	tree := MakeTreeMap(dirs)["a"]
 
-	actual := tree.AllPath()
+	actual := tree.AllPathString()
 
 	if !reflect.DeepEqual(dirs, actual) {
 		t.Fatalf("actual: %v\nexpected: %v", actual, dirs)
