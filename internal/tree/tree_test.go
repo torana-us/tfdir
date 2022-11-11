@@ -1,11 +1,11 @@
-package main_test
+package tree_test
 
 import (
 	"fmt"
 	"reflect"
 	"testing"
 
-	. "github.com/torana-us/tfdir"
+	. "github.com/torana-us/tfdir/internal/tree"
 )
 
 func Test_Eq_Simple(t *testing.T) {

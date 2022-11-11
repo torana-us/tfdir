@@ -1,4 +1,4 @@
-package main
+package moddep
 
 import (
 	"path/filepath"

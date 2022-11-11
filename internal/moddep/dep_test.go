@@ -1,4 +1,4 @@
-package main_test
+package moddep_test
 
 import (
 	"fmt"
@@ -7,13 +7,13 @@ import (
 	"sort"
 	"testing"
 
-	. "github.com/torana-us/tfdir"
+	. "github.com/torana-us/tfdir/internal/moddep"
 )
 
 func Test_GetDependency(t *testing.T) {
 	executed_dirs := []string{
-		"testdata/terraform/environments/test_1/",
-		"testdata/terraform/environments/test_2/",
+		"../../testdata/terraform/environments/test_1/",
+		"../../testdata/terraform/environments/test_2/",
 	}
 	expected := map[string][]string{
 		"testdata/terraform/modules/module_1": {
