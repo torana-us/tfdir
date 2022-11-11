@@ -61,18 +61,19 @@ func GetDependency(dirs []string) (mod_map ModuleMap, diags tfconfig.Diagnostics
 }
 
 func getDependencyChildren(dir ExecutedDir, mod_map ModuleMap, mod *tfconfig.Module) (diags tfconfig.Diagnostics) {
-	parent_path := mod.Path
+	self_path := mod.Path
 	for _, m := range mod.ModuleCalls {
-		path := m.Source
-		if !isLocalModule(path) {
+		child_path_from_self := m.Source
+		if !isLocalModule(child_path_from_self) {
 			continue
 		}
-		key := Module(filepath.Join(parent_path, path))
+
+		child_path := filepath.Join(self_path, child_path_from_self)
+
+		key := Module(child_path)
 		mod_map[key] = append(mod_map[key], dir)
 
-		child_mod, d := tfconfig.LoadModule(
-			filepath.Join(parent_path, path),
-		)
+		child_mod, d := tfconfig.LoadModule(child_path)
 
 		if d.HasErrors() {
 			diags = append(diags, d...)
