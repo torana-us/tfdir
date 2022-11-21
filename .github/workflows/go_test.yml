@@ -1,0 +1,13 @@
+name: go test
+on: [pull_request]
+
+jobs:
+  run:
+    name: Run Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.0.2
+      - uses: aquaproj/aqua-installer@v1.1.2
+        with:
+          aqua_version: v1.25.0
+      - run: go test ./...
