@@ -21,6 +21,7 @@ git diff --name-only | tfdir get
     GITHUB_TOKEN: ${{ secrets.PAT }}
   run: |
     curl "https://$GITHUB_TOKEN@raw.githubusercontent.com/torana-us/tfdir/master/installer.sh" | bash
+- uses: technote-space/get-diff-action@v6
 - name: get target dir
-  run: git diff origin/${{ github.base_ref }}...origin/${{ github.head_ref }} --name-only --diff-filter=AM | ./tfdir get
+  run: echo ${{ env.GIT_DIFF }} | tr ' ' '\n' | ./tfdir get
 ```
