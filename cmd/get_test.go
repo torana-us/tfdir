@@ -8,8 +8,8 @@ import (
 
 func Test_getDirs(t *testing.T) {
 	executed_dirs := []string{
-		"../testdata/terraform/environments/test_1/",
-		"../testdata/terraform/environments/test_2/",
+		"../testdata/terraform/environments/test_1",
+		"../testdata/terraform/environments/test_2",
 	}
 
 	aa := map[string]struct {
@@ -22,15 +22,15 @@ func Test_getDirs(t *testing.T) {
 		},
 		"executed_dirsの差分": {
 			[]string{"../testdata/terraform/environments/test_1/main.tf"},
-			[]string{"../testdata/terraform/environments/test_1/"},
+			[]string{"../testdata/terraform/environments/test_1"},
 		},
 		"moduleの差分": {
 			[]string{"../testdata/terraform/modules/module_1/main.tf"},
-			[]string{"../testdata/terraform/environments/test_1/", "../testdata/terraform/environments/test_2/"},
+			[]string{"../testdata/terraform/environments/test_1", "../testdata/terraform/environments/test_2"},
 		},
-		"executed_dirsの差分とmoduleの差分の混在": {
-			[]string{"../testdata/terraform/environments/test_1/main.tf","../testdata/terraform/modules/module_1/main.tf"},
-			[]string{"../testdata/terraform/environments/test_1/"},
+		"executed_dirs, moduleの混在": {
+			[]string{"../testdata/terraform/environments/test_1/main.tf", "../testdata/terraform/modules/module_1/main.tf"},
+			[]string{"../testdata/terraform/environments/test_1", "../testdata/terraform/environments/test_2"},
 		},
 	}
 
