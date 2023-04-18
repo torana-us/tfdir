@@ -97,7 +97,7 @@ func getDirs(diff_paths []string, executed_dirs []string) ([]string, error) {
 		}
 
 		for _, p := range n.AllPathString() {
-			result = append(result, filepath.Join(filepath.Dir(diff_dir), p)+string(filepath.Separator))
+			result = append(result, filepath.Join(filepath.Dir(diff_dir), p))
 		}
 	}
 
