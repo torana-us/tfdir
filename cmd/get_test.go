@@ -9,7 +9,7 @@ import (
 func Test_getDirs(t *testing.T) {
 	executed_dirs := []string{
 		"../testdata/terraform/environments/test_1",
-		"../testdata/terraform/environments/test_2",
+		"../testdata/terraform/environments/test_2/",
 	}
 
 	aa := map[string]struct {
