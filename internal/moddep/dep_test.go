@@ -17,14 +17,14 @@ func Test_GetDependency(t *testing.T) {
 	}
 	expected := map[string][]string{
 		"../../testdata/terraform/modules/module_1": {
-			"../../testdata/terraform/environments/test_2/",
-			"../../testdata/terraform/environments/test_1/",
+			"../../testdata/terraform/environments/test_2",
+			"../../testdata/terraform/environments/test_1",
 		},
 		"../../testdata/terraform/modules/module_2": {
-			"../../testdata/terraform/environments/test_1/",
+			"../../testdata/terraform/environments/test_1",
 		},
 		"../../testdata/terraform/modules/module_2/modules/module_2_1": {
-			"../../testdata/terraform/environments/test_1/",
+			"../../testdata/terraform/environments/test_1",
 		},
 	}
 
