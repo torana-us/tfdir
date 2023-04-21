@@ -1,6 +1,7 @@
 package moddep
 
 import (
+	"path"
 	"path/filepath"
 	"strings"
 
@@ -21,7 +22,7 @@ func (m ModuleMap) GetRaw(key string) ([]string, bool) {
 	}
 
 	for i, v := range dirs {
-		raws[i] = string(v)
+		raws[i] = path.Clean(string(v))
 	}
 
 	return raws, ok
