@@ -1,3 +1,11 @@
+## tfdir
+
+terraformを実行するべきディレクトリを取得します
+
+moduleを変更したときにそのmoduleに依存しているterraformを検知できます
+
+[テスト](https://github.com/torana-us/tfdir/blob/master/cmd/get_test.go)を見ると分かりやすい
+
 ## Usage
 
 ### CLI
@@ -25,3 +33,7 @@ git diff --name-only | tfdir get
 - name: get target dir
   run: echo ${{ env.GIT_DIFF }} | tr ' ' '\n' | ./tfdir get
 ```
+
+## Release
+
+`v[0-9]+.[0-9]+.[0-9]+`形式のタグをpushするとrelease workflowが動きます
