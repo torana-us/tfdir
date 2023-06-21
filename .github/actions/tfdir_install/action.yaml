@@ -1,0 +1,18 @@
+---
+name: install tfdir
+description: install tfdir
+
+runs:
+  using: composite
+  steps:
+    - id: get_token
+      uses: torana-us/sre-shared-actions/.github/actions/get_token@master
+      with:
+        app_id: 350245
+        private_key: ${{ secrets.TORANA_READ_REPO_PRIVATE_KEY }}
+    - name: install tfdir
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT }}
+      run: |
+        curl "https://$GITHUB_TOKEN@raw.githubusercontent.com/torana-us/tfdir/master/installer.sh" | bash

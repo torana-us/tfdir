@@ -1,0 +1,10 @@
+name: test
+on: [push]
+
+jobs:
+  run:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: torana-us/tfdir/.github/actions/tfdir_install@test/installer
+      - run: tfdir
