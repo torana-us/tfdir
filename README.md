@@ -24,11 +24,14 @@ git diff --name-only | tfdir get
 - uses: actions/checkout@v3
   with:
     fetch-depth: 0
+- id: get_token
+  uses: torana-us/sre-shared-actions/.github/actions/get_token@master
+  with:
+    app_id: 350245
+    private_key: ${{ secrets.TORANA_READ_REPO_PRIVATE_KEY }}
 - name: install tfdir
-  env:
-    GITHUB_TOKEN: ${{ secrets.PAT }}
   run: |
-    curl "https://$GITHUB_TOKEN@raw.githubusercontent.com/torana-us/tfdir/master/installer.sh" | bash
+    curl "https://${{ steps.get_token.outputs.token }}raw.githubusercontent.com/torana-us/tfdir/master/installer.sh" | bash
 - uses: technote-space/get-diff-action@v6
 - name: get target dir
   run: echo ${{ env.GIT_DIFF }} | tr ' ' '\n' | ./tfdir get
