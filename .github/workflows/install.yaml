@@ -6,5 +6,12 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     steps:
+      - id: get_token
+        uses: torana-us/sre-shared-actions/.github/actions/get_token@master
+        with:
+          app_id: 350245
+          private_key: ${{ secrets.TORANA_READ_REPO_PRIVATE_KEY }}
       - uses: torana-us/tfdir/.github/actions/tfdir_install@test/installer
+        with:
+          token: ${{ steps.get_token.outputs.token }}
       - run: tfdir
