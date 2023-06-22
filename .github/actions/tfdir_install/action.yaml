@@ -15,4 +15,4 @@ runs:
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
       run: |
-        curl "https://$GITHUB_TOKEN@raw.githubusercontent.com/torana-us/tfdir/master/installer.sh" | bash
+        gh api -H "accept: application/vnd.github.v3.raw" /repos/torana-us/tfdir/contents/installer.sh | bash
