@@ -12,5 +12,7 @@ runs:
   steps:
     - name: install tfdir
       shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
       run: |
-        curl "https://${{ inputs.token }}@raw.githubusercontent.com/torana-us/tfdir/master/installer.sh" | bash
+        curl "https://$GITHUB_TOKEN@raw.githubusercontent.com/torana-us/tfdir/master/installer.sh" | bash
