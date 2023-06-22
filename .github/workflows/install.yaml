@@ -13,5 +13,5 @@ jobs:
           private_key: ${{ secrets.TORANA_READ_REPO_PRIVATE_KEY }}
       - uses: torana-us/tfdir/.github/actions/tfdir_install@test/installer
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ steps.get_token.outputs.token }}
       - run: tfdir
