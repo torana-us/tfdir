@@ -12,7 +12,5 @@ runs:
         private_key: ${{ secrets.TORANA_READ_REPO_PRIVATE_KEY }}
     - name: install tfdir
       shell: bash
-      env:
-        GITHUB_TOKEN: ${{ secrets.PAT }}
       run: |
-        curl "https://$GITHUB_TOKEN@raw.githubusercontent.com/torana-us/tfdir/master/installer.sh" | bash
+        curl "https://${{ steps.get_token.outputs.token }}@raw.githubusercontent.com/torana-us/tfdir/master/installer.sh" | bash
