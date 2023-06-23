@@ -1,0 +1,19 @@
+---
+name: install tfdir
+description: install tfdir
+
+inputs:
+  token:
+    required: true
+    description: token
+
+runs:
+  using: composite
+  steps:
+    - name: install tfdir
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+      run: |
+        $GITHUB_ACTION_PATH/../../../installer.sh
+        mv ./tfdir /usr/local/bin/
