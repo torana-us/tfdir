@@ -15,6 +15,6 @@ runs:
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
       run: |
-        ls
+        ls /home/runner/work/_actions/torana-us/tfdir/test/installer
         ./installer.sh
         mv ./tfdir /usr/local/bin/
