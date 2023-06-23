@@ -15,5 +15,6 @@ runs:
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
       run: |
+        ls
         ./installer.sh
         mv ./tfdir /usr/local/bin/
