@@ -11,8 +11,8 @@ else
     arch="arm64"
 fi
 
-release_id=$(curl -sL https://api.github.com/repos/$owner/$repo/releases/latest \
-    -H "Authorization: Bearer $GITHUB_TOKEN" \
+release_id=$(curl -H "Authorization: Bearer $GITHUB_TOKEN" \
+    -sL https://api.github.com/repos/$owner/$repo/releases/latest \
     | jq '.assets[] | select(.name | contains("'$os'_'$arch'")) | .id')
 
 curl -sLJ \
