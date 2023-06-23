@@ -15,5 +15,5 @@ runs:
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
       run: |
-        gh api -H "accept: application/vnd.github.v3.raw" /repos/torana-us/tfdir/contents/installer.sh | bash
+        ./installer.sh
         mv ./tfdir /usr/local/bin/
