@@ -6,10 +6,6 @@ inputs:
   token:
     required: true
     description: token
-  branch:
-    required: false
-    default: master
-    description: branch
 
 runs:
   using: composite
@@ -19,5 +15,5 @@ runs:
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
       run: |
-        /home/runner/work/_actions/torana-us/tfdir/${{ inputs.branch }}/installer.sh
+        $GITHUB_ACTION_PATH/installer.sh
         mv ./tfdir /usr/local/bin/
