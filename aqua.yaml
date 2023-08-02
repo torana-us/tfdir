@@ -5,4 +5,4 @@ registries:
   - type: standard
     ref: v4.15.0 # renovate: depName=aquaproj/aqua-registry
 packages:
-  - name: golang/go@go1.20.6
+  - name: golang/go@go1.20.7
