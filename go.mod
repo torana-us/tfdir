@@ -3,7 +3,7 @@ module github.com/torana-us/tfdir
 go 1.20
 
 require (
-	github.com/hashicorp/terraform-config-inspect v0.0.0-20230522202058-dbe9bfcbfe7a
+	github.com/hashicorp/terraform-config-inspect v0.0.0-20230808231734-f15f31bf62b3
 	github.com/spf13/cobra v1.7.0
 	github.com/spf13/viper v1.16.0
 )

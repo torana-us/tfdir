@@ -137,6 +137,8 @@ github.com/hashicorp/terraform-config-inspect v0.0.0-20230413234026-f1617e8a5fcc
 github.com/hashicorp/terraform-config-inspect v0.0.0-20230413234026-f1617e8a5fcc/go.mod h1:l8HcFPm9cQh6Q0KSWoYPiePqMvRFenybP1CH2MjKdlg=
 github.com/hashicorp/terraform-config-inspect v0.0.0-20230522202058-dbe9bfcbfe7a h1:zKVsrHhIOWiXHYqFrOXfHacOOVDMYv+v/Wx8DUeyySs=
 github.com/hashicorp/terraform-config-inspect v0.0.0-20230522202058-dbe9bfcbfe7a/go.mod h1:l8HcFPm9cQh6Q0KSWoYPiePqMvRFenybP1CH2MjKdlg=
+github.com/hashicorp/terraform-config-inspect v0.0.0-20230808231734-f15f31bf62b3 h1:1uP3RA50ayEcTrHJtHaqubpW66KkXKIYXHP1+79dbMc=
+github.com/hashicorp/terraform-config-inspect v0.0.0-20230808231734-f15f31bf62b3/go.mod h1:l8HcFPm9cQh6Q0KSWoYPiePqMvRFenybP1CH2MjKdlg=
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
 github.com/ianlancetaylor/demangle v0.0.0-20200824232613-28f6c0f3b639/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
 github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2s0bqwp9tc8=
