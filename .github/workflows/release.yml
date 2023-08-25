@@ -9,7 +9,7 @@ jobs:
     name: Release Go Binary
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.5.3
+      - uses: actions/checkout@v3.6.0
       - uses: aquaproj/aqua-installer@v2.1.2
         with:
           aqua_version: v2.10.1
