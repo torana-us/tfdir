@@ -19,7 +19,7 @@ jobs:
       id-token: write
       pull-requests: read
     steps:
-      - uses: tj-actions/changed-files@v39
+      - uses: tj-actions/changed-files@v40
         id: changes
         with:
           files_yaml: |
