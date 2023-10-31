@@ -5,6 +5,8 @@ jobs:
   run:
     name: Run Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4.1.1
       - uses: aquaproj/aqua-installer@v2.1.2

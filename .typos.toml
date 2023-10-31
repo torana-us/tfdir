@@ -1,0 +1,14 @@
+[files]
+extend-exclude = [
+  ".typos.toml",
+  ".terraform/**",
+  ".terraform.lock.hcl",
+  "*.svg",
+  "terraform/environments/prd/aws/backend_deploy/main.tf",
+  "terraform/environments/stg/aws/backend_deploy/main.tf",
+  "go.mod",
+  "go.sum",
+]
+
+[default.extend-words]
+ser = "ser"
