@@ -8,3 +8,4 @@ packages:
   - name: golang/go@go1.21.3
   - name: suzuki-shunsuke/ghalint@v0.2.2
   - name: gitleaks/gitleaks@v8.18.0
+  - name: tamasfe/taplo@0.8.1
