@@ -24,10 +24,10 @@ jobs:
     steps:
       - name: Checkout
         timeout-minutes: 3
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - name: Run actionlint with reviewdog
         timeout-minutes: 5
-        uses: reviewdog/action-actionlint@v1.39.1
+        uses: reviewdog/action-actionlint@82693e9e3b239f213108d6e412506f8b54003586 # v1.39.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
