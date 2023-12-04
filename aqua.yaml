@@ -3,9 +3,9 @@
 # https://aquaproj.github.io/
 registries:
   - type: standard
-    ref: v4.92.2 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.95.0 # renovate: depName=aquaproj/aqua-registry
 packages:
   - name: golang/go@go1.21.4
-  - name: suzuki-shunsuke/ghalint@v0.2.4
+  - name: suzuki-shunsuke/ghalint@v0.2.7
   - name: gitleaks/gitleaks@v8.18.1
   - name: tamasfe/taplo@0.8.1
