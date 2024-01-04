@@ -21,20 +21,31 @@ git diff --name-only | tfdir get
 ### Github Actions
 
 ```yml
-- uses: actions/checkout@v3
-  with:
-    fetch-depth: 0
-- id: get_token
-  uses: torana-us/sre-shared-actions/.github/actions/get_token@master
-  with:
-    app_id: 350245
-    private_key: ${{ secrets.TORANA_READ_REPO_PRIVATE_KEY }}
-- uses: torana-us/tfdir/.github/actions/tfdir_install@master
-  with:
-    token: ${{ steps.get_token.outputs.token }}
-- uses: technote-space/get-diff-action@v6
-- name: get target dir
-  run: echo ${{ env.GIT_DIFF }} | tr ' ' '\n' | tfdir get
+jobs:
+  get_target_dirs:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: install tfdir
+        env:
+          GITHUB_TOKEN: ${{ secrets.token }}
+        run: |
+          curl "https://$GITHUB_TOKEN@raw.githubusercontent.com/torana-us/tfdir/master/installer.sh" | bash
+      - uses: technote-space/get-diff-action@v6
+        with:
+          DIFF_FILTER: 'AMRCD'
+          PATTERNS: |
+            terraform/**
+      - name: get target dir
+        id: target_dirs
+        run: |
+          echo ${{ env.GIT_DIFF }} \
+            | tr ' ' '\n' \
+            | ./tfdir get
 ```
 
 ## Release
