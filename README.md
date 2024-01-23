@@ -1,4 +1,4 @@
-## tfdir
+# tfdir
 
 terraformを実行するべきディレクトリを取得します
 
