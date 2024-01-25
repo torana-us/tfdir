@@ -51,3 +51,7 @@ jobs:
 ## Release
 
 `v[0-9]+.[0-9]+.[0-9]+`形式のタグをpushするとrelease workflowが動きます
+
+## License
+
+MIT
