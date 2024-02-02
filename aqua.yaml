@@ -7,5 +7,5 @@ registries:
 packages:
   - name: golang/go@go1.21.5
   - name: suzuki-shunsuke/ghalint@v0.2.9
-  - name: gitleaks/gitleaks@v8.18.1
+  - name: gitleaks/gitleaks@v8.18.2
   - name: tamasfe/taplo@0.8.1
