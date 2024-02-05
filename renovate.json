@@ -1,7 +1,50 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    "github>aquaproj/aqua-renovate-config#1.13.0"
-  ]
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:base",
+        "github>aquaproj/aqua-renovate-config#2.0.0"
+    ],
+    "regexManagers": [
+        {
+            "fileMatch": [
+                "^\\.tflint\\.hcl$"
+            ],
+            "matchStrings": [
+                "version\\s*=\\s*\"(?<currentValue>[^\"]*)([^}])*?source\\s*=\\s*\"github.com/(?<depName>.*)\"",
+                "source\\s*=\\s*\"github.com/(?<depName>.*)\"([^}])*?version\\s*=\\s*\"(?<currentValue>[^\"]*)"
+            ],
+            "datasourceTemplate": "github-releases",
+            "extractVersionTemplate": "^v(?<version>.*)$"
+        },
+        {
+            "fileMatch": [
+                "\\.hcl$"
+            ],
+            "matchStrings": [
+                "(?<vendor>.*?)[^=]*=[^\\{]*\\{([\\s\\n]*(?:(?<source>source)[^=]*=[^\"]*?\"(?<owner>[^/]*)/(?<name>[^\"]*)\"|(?<version>version)[^=]*=[^\"]*\"(?<currentValue>[^\"]*?)\"))+[^\\}]*\\}"
+            ],
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "{{owner}}/terraform-provider-{{name}}",
+            "depTypeTemplate": "required_provider",
+            "extractVersionTemplate": "^v(?<version>.*)$"
+        }
+    ],
+    "packageRules": [
+        {
+            "groupName": "aqua devDependencies",
+            "matchFileNames": [
+                "aqua.yml",
+                "aqua.yaml"
+            ],
+            "excludePackageNames": [
+                "hashicorp/terraform"
+            ]
+        },
+        {
+            "groupName": "aws-sdk-go-v2",
+            "matchPackagePrefixes": [
+                "github.com/aws/aws-sdk-go-v2"
+            ]
+        }
+    ]
 }
