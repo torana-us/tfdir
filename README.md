@@ -18,7 +18,7 @@ git diff --name-only | tfdir get
 
 参照 [config.yaml](./config.yaml)
 
-### Github Actions
+### GitHub Actions
 
 ```yml
 jobs:
@@ -31,20 +31,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: install tfdir
-        env:
-          GITHUB_TOKEN: ${{ secrets.token }}
         run: |
-          curl "https://$GITHUB_TOKEN@raw.githubusercontent.com/torana-us/tfdir/master/installer.sh" | bash
-      - uses: technote-space/get-diff-action@v6
-        with:
-          DIFF_FILTER: 'AMRCD'
-          PATTERNS: |
-            terraform/**
+          curl "https://raw.githubusercontent.com/torana-us/tfdir/master/installer.sh" | bash
       - name: get target dir
         id: target_dirs
+        env:
+          HEAD_REF: ${{ github.head_ref }}
         run: |
-          echo ${{ env.GIT_DIFF }} \
-            | tr ' ' '\n' \
+          git diff --diff-filter=AMRCD \
+            --name-only \
+            ${{ env.HEAD_REF }}..origin/main \
+            "terraform/**.tf" \
+            | xargs \
             | ./tfdir get
 ```
 
