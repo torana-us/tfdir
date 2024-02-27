@@ -33,7 +33,7 @@ func init() {
 
 func getCmdRunner(cmd *cobra.Command, args []string) error {
 	var config Config
-	viper.Unmarshal(&config)
+	_ = viper.Unmarshal(&config)
 
 	dirs, err := getDirs(read_from_stdin(), config.ExecutedDirs)
 
