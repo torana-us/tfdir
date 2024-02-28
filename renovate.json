@@ -38,7 +38,8 @@
             ],
             "excludePackageNames": [
                 "hashicorp/terraform"
-            ]
+            ],
+            "automerge": true
         },
         {
             "groupName": "aws-sdk-go-v2",
