@@ -9,4 +9,4 @@ packages:
   - name: suzuki-shunsuke/ghalint@v0.2.9
   - name: gitleaks/gitleaks@v8.18.2
   - name: tamasfe/taplo@release-taplo-cli-0.9.0
-  - name: golangci/golangci-lint@v1.56.2
+  - name: golangci/golangci-lint@v1.57.1
