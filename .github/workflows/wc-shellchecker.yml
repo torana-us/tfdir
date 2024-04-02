@@ -1,0 +1,26 @@
+---
+name: Run shell checker
+
+on: workflow_call
+
+jobs:
+  sh_checker:
+    name: Run sh-checker
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: read
+      id-token: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        timeout-minutes: 3
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Run sh-checker
+        timeout-minutes: 5
+        uses: luizm/action-sh-checker@c6edb3de93e904488b413636d96c6a56e3ad671a # v0.8.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SHFMT_OPTS: -s
+        with:
+          sh_checker_comment: true

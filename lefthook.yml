@@ -1,0 +1,34 @@
+---
+pre-commit:
+  parallel: true
+  commands:
+    actionlint:
+      root: ".github/workflows/"
+      glob: "*.{yml,yaml}"
+      run: actionlint {staged_files}
+    ghalint:
+      root: ".github/workflows/"
+      glob: "*.{yml,yaml}"
+      run: ghalint run
+    typos:
+      run: |
+        if type -a typos >/dev/null 2>&1; then
+          typos --config .typos.toml
+        else
+          echo "typos is not found."
+        fi
+    gitleaks:
+      run: gitleaks detect -v
+    taplo:
+      glob: "*.toml"
+      run: taplo format {staged_files}
+    shellcheck:
+      glob: "*.{sh,bash}"
+      run: shellcheck -- {staged_files}
+    shfmt:
+      glob: "*.{sh,bash}"
+      run: shfmt -d -s -w -- {staged_files}
+    go:
+      glob: "*.go"
+      run: |
+        make lint

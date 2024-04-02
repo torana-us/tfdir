@@ -1,0 +1,28 @@
+---
+name: Run gitleaks
+
+on: workflow_call
+
+jobs:
+  gitleaks:
+    name: Run gitleaks
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    permissions:
+      contents: read
+      id-token: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        timeout-minutes: 3
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          fetch-depth: 0
+      - name: Setup aqua
+        timeout-minutes: 5
+        uses: aquaproj/aqua-installer@4551ec64e21bf0f557c2525135ff0bd2cba40ec7 # v3.0.0
+        with:
+          aqua_version: v2.25.2
+      - name: Run gitleaks
+        timeout-minutes: 5
+        run: gitleaks detect -v
