@@ -1,0 +1,26 @@
+---
+name: Run markdownlint with reviewdog
+
+on: workflow_call
+
+jobs:
+  markdownlint:
+    name: Run markdownlint with reviewdog
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: read
+      id-token: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        timeout-minutes: 3
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Run markdownlint with reviewdog
+        timeout-minutes: 5
+        uses: fkohrt/action-markdownlint@981196421b42f419e5a1d6d13a1c876f75fbc522 # v0.2.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          fail_on_error: true
+          markdownlint_flags: "-c markdownlint.config.js -i **/CHANGELOG.md -p **/.gitignore -- \"**/*.md\""

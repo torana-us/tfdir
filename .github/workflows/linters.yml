@@ -1,0 +1,98 @@
+---
+name: Run linters
+
+on:
+  pull_request:
+
+jobs:
+  path-filter:
+    # Get changed files to filter jobs
+    outputs:
+      markdownlint: ${{ steps.changes.outputs.markdownlint_any_changed == 'true' }}
+      shellchecker: ${{ steps.changes.outputs.shellchecker_any_changed == 'true' }}
+      ghalint: ${{ steps.changes.outputs.ghalint_any_changed == 'true' }}
+      taplo: ${{ steps.changes.outputs.taplo_any_changed == 'true' }}
+      yamllint: ${{ steps.changes.outputs.yamllint_any_changed == 'true' }}
+      terraform: ${{ steps.changes.outputs.terraform_any_changed == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+      pull-requests: read
+    steps:
+      - uses: tj-actions/changed-files@2d756ea4c53f7f6b397767d8723b3a10a9f35bf2 # v44
+        id: changes
+        with:
+          files_yaml: |
+            markdownlint:
+              - 'README.md'
+              - '.github/workflows/wc-markdownlint.yml'
+            shellchecker:
+              - '*.{bash,sh}'
+              - '.github/workflows/wc-shellchecker.yml'
+            ghalint:
+              - '.github/workflows/*.{yaml,yml}'
+            taplo:
+              - '*.toml'
+              - '.github/workflows/wc-taplo.yml'
+            yamllint:
+              - '*.{yaml,yml}'
+
+  markdownlint:
+    needs: path-filter
+    if: needs.path-filter.outputs.markdownlint == 'true'
+    uses: ./.github/workflows/wc-markdownlint.yml
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+
+  shellchecker:
+    needs: path-filter
+    if: needs.path-filter.outputs.shellchecker == 'true'
+    uses: ./.github/workflows/wc-shellchecker.yml
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+
+  ghalint:
+    needs: path-filter
+    if: needs.path-filter.outputs.ghalint == 'true'
+    uses: ./.github/workflows/wc-ghalint.yml
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+
+  yamllint:
+    needs: path-filter
+    if: needs.path-filter.outputs.yamllint == 'true'
+    uses: ./.github/workflows/wc-yamllint.yml
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+
+  taplo:
+    needs: path-filter
+    if: needs.path-filter.outputs.taplo == 'true'
+    uses: ./.github/workflows/wc-taplo.yml
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+
+  gitleaks:
+    uses: ./.github/workflows/wc-gitleaks.yml
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+
+  typos:
+    uses: ./.github/workflows/wc-typos.yml
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
