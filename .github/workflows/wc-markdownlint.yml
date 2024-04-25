@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Checkout
         timeout-minutes: 3
-        uses: actions/checkout@1d96c772d19495a3b5c517cd2bc0cb401ea0529f # v4.1.3
+        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
       - name: Run markdownlint with reviewdog
         timeout-minutes: 5
         uses: fkohrt/action-markdownlint@981196421b42f419e5a1d6d13a1c876f75fbc522 # v0.2.1
