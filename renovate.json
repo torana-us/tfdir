@@ -1,32 +1,8 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
-        "github>aquaproj/aqua-renovate-config#2.3.0"
-    ],
-    "regexManagers": [
-        {
-            "fileMatch": [
-                "^\\.tflint\\.hcl$"
-            ],
-            "matchStrings": [
-                "version\\s*=\\s*\"(?<currentValue>[^\"]*)([^}])*?source\\s*=\\s*\"github.com/(?<depName>.*)\"",
-                "source\\s*=\\s*\"github.com/(?<depName>.*)\"([^}])*?version\\s*=\\s*\"(?<currentValue>[^\"]*)"
-            ],
-            "datasourceTemplate": "github-releases",
-            "extractVersionTemplate": "^v(?<version>.*)$"
-        },
-        {
-            "fileMatch": [
-                "\\.hcl$"
-            ],
-            "matchStrings": [
-                "(?<vendor>.*?)[^=]*=[^\\{]*\\{([\\s\\n]*(?:(?<source>source)[^=]*=[^\"]*?\"(?<owner>[^/]*)/(?<name>[^\"]*)\"|(?<version>version)[^=]*=[^\"]*\"(?<currentValue>[^\"]*?)\"))+[^\\}]*\\}"
-            ],
-            "datasourceTemplate": "github-releases",
-            "depNameTemplate": "{{owner}}/terraform-provider-{{name}}",
-            "depTypeTemplate": "required_provider",
-            "extractVersionTemplate": "^v(?<version>.*)$"
-        }
+        "github>aquaproj/aqua-renovate-config#2.3.0",
+        "config:best-practices"
     ],
     "packageRules": [
         {
@@ -45,6 +21,16 @@
             "matchPackagePrefixes": [
                 "github.com/aws/aws-sdk-go-v2"
             ]
+        },
+        {
+            "matchPackagePatterns": [
+                "aquaproj/aqua-installer",
+                "actions/*",
+                "aws-actions/*",
+                "google-github-actions/*",
+                "terraform-linters/*"
+            ],
+            "automerge": true
         }
     ]
 }
