@@ -24,7 +24,7 @@
         },
         {
             "matchPackagePatterns": [
-                "aquaproj/aqua-installer",
+                "aquaproj/*",
                 "actions/*",
                 "aws-actions/*",
                 "google-github-actions/*",
