@@ -37,7 +37,7 @@ jobs:
           fi
       - name: Checkout
         timeout-minutes: 3
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Run sh-checker
         timeout-minutes: 5
         uses: luizm/action-sh-checker@c6edb3de93e904488b413636d96c6a56e3ad671a # v0.8.0
