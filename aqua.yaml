@@ -14,3 +14,4 @@ packages:
   - name: koalaman/shellcheck@v0.10.0
   - name: mvdan/sh@v3.8.0
   - name: crate-ci/typos@v1.23.2
+  - name: suzuki-shunsuke/ghatm@v0.3.1

@@ -7,6 +7,7 @@ on:
 jobs:
   path-filter:
     # Get changed files to filter jobs
+    timeout-minutes: 3
     outputs:
       markdownlint: ${{ steps.changes.outputs.markdownlint_any_changed == 'true' }}
       shellchecker: ${{ steps.changes.outputs.shellchecker_any_changed == 'true' }}
