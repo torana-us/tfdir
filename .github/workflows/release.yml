@@ -18,6 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        with:
+          fetch-depth: 0 # Changelog を正しく動作させるために必要
+      - uses: actions/setup-go@v5.0.2
+        with:
+          go-version-file: go.mod
+          cache: true
       - name: generate tag
         id: gen_tag
         run: |
@@ -28,12 +34,8 @@ jobs:
         run: |
           git tag ${{ steps.gen_tag.outputs.tag }}
           git push origin ${{ steps.gen_tag.outputs.tag }}
-
-      - uses: release-drafter/release-drafter@3f0f87098bd6b5c5b9a36d49c41d998ea58f9348 # v6
+      - uses: goreleaser/goreleaser-action@v4
         with:
-          publish: true
-          tag: ${{ steps.gen_tag.outputs.tag }}
-          version: ${{ steps.gen_tag.outputs.tag }}
-          name: ${{ steps.gen_tag.outputs.tag }}
+          args: release --rm-dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
