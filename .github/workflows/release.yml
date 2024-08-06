@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
         with:
           fetch-depth: 0 # Changelog を正しく動作させるために必要
-      - uses: actions/setup-go@v5.0.2
+      - uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5.0.2
         with:
           go-version-file: go.mod
           cache: true
@@ -34,7 +34,7 @@ jobs:
         run: |
           git tag ${{ steps.gen_tag.outputs.tag }}
           git push origin ${{ steps.gen_tag.outputs.tag }}
-      - uses: goreleaser/goreleaser-action@v4
+      - uses: goreleaser/goreleaser-action@5fdedb94abba051217030cc86d4523cf3f02243d # v4
         with:
           args: release  --clean
         env:
