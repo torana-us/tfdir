@@ -11,26 +11,26 @@
                 "aqua.yml",
                 "aqua.yaml"
             ],
-            "excludePackageNames": [
-                "hashicorp/terraform"
-            ],
-            "automerge": true
-        },
-        {
-            "groupName": "aws-sdk-go-v2",
-            "matchPackagePrefixes": [
-                "github.com/aws/aws-sdk-go-v2"
+            "automerge": true,
+            "matchPackageNames": [
+                "!hashicorp/terraform"
             ]
         },
         {
-            "matchPackagePatterns": [
-                "aquaproj/*",
-                "actions/*",
-                "aws-actions/*",
-                "google-github-actions/*",
-                "terraform-linters/*"
-            ],
-            "automerge": true
+            "groupName": "aws-sdk-go-v2",
+            "matchPackageNames": [
+                "github.com/aws/aws-sdk-go-v2{/,}**"
+            ]
+        },
+        {
+            "automerge": true,
+            "matchPackageNames": [
+                "/aquaproj/*/",
+                "/actions/*/",
+                "/aws-actions/*/",
+                "/google-github-actions/*/",
+                "/terraform-linters/*/"
+            ]
         }
     ]
 }
