@@ -13,5 +13,5 @@ packages:
   - name: evilmartians/lefthook@v1.7.18
   - name: koalaman/shellcheck@v0.10.0
   - name: mvdan/sh@v3.9.0
-  - name: crate-ci/typos@v1.24.6
+  - name: crate-ci/typos@v1.25.0
   - name: suzuki-shunsuke/ghatm@v0.3.2
