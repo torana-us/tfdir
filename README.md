@@ -48,7 +48,15 @@ jobs:
 
 ## Release
 
-`v[0-9]+.[0-9]+.[0-9]+`形式のタグをpushするとrelease workflowが動きます
+PRに`release`ラベルを付与してmasterブランチにマージするとReleaseアセットが作成されます
+
+## Development
+
+- aquaprj/aquaをinstall
+  - (Macの場合) `brew install aquaprj/aqua`
+  - `aqua i`
+- 初回のみ、lefthookを有効化します
+  - `lefthook install`
 
 ## License
 

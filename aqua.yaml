@@ -15,3 +15,4 @@ packages:
   - name: mvdan/sh@v3.9.0
   - name: crate-ci/typos@v1.26.0
   - name: suzuki-shunsuke/ghatm@v0.3.3
+  - name: rhysd/actionlint@v1.7.3
