@@ -5,7 +5,7 @@ registries:
   - type: standard
     ref: v4.248.0 # renovate: depName=aquaproj/aqua-registry
 packages:
-  - name: golang/go@go1.23.2
+  - name: golang/go@go1.23.3
   - name: suzuki-shunsuke/ghalint@v1.0.0
   - name: gitleaks/gitleaks@v8.21.2
   - name: tamasfe/taplo@0.9.3
@@ -13,6 +13,6 @@ packages:
   - name: evilmartians/lefthook@v1.8.2
   - name: koalaman/shellcheck@v0.10.0
   - name: mvdan/sh@v3.10.0
-  - name: crate-ci/typos@v1.27.1
+  - name: crate-ci/typos@v1.27.2
   - name: suzuki-shunsuke/ghatm@v0.3.3
   - name: rhysd/actionlint@v1.7.4
