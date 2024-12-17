@@ -3,7 +3,7 @@
 # https://aquaproj.github.io/
 registries:
   - type: standard
-    ref: v4.276.1 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.277.0 # renovate: depName=aquaproj/aqua-registry
 packages:
   - name: golang/go@go1.23.4
   - name: suzuki-shunsuke/ghalint@v1.1.0
@@ -13,6 +13,6 @@ packages:
   - name: evilmartians/lefthook@v1.9.2
   - name: koalaman/shellcheck@v0.10.0
   - name: mvdan/sh@v3.10.0
-  - name: crate-ci/typos@v1.28.3
+  - name: crate-ci/typos@v1.28.4
   - name: suzuki-shunsuke/ghatm@v0.3.3
   - name: rhysd/actionlint@v1.7.4
