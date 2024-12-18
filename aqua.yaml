@@ -10,7 +10,7 @@ packages:
   - name: gitleaks/gitleaks@v8.21.2
   - name: tamasfe/taplo@0.9.3
   - name: golangci/golangci-lint@v1.62.2
-  - name: evilmartians/lefthook@v1.9.2
+  - name: evilmartians/lefthook@v1.9.3
   - name: koalaman/shellcheck@v0.10.0
   - name: mvdan/sh@v3.10.0
   - name: crate-ci/typos@v1.28.4
