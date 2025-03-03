@@ -14,5 +14,5 @@ packages:
   - name: koalaman/shellcheck@v0.10.0
   - name: mvdan/sh@v3.10.0
   - name: crate-ci/typos@v1.30.0
-  - name: suzuki-shunsuke/ghatm@v0.3.3
+  - name: suzuki-shunsuke/ghatm@v0.3.4
   - name: rhysd/actionlint@v1.7.7
