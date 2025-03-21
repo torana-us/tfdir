@@ -25,11 +25,11 @@
         {
             "automerge": true,
             "matchPackageNames": [
-                "/aquaproj/*/",
-                "/actions/*/",
-                "/aws-actions/*/",
-                "/google-github-actions/*/",
-                "/terraform-linters/*/"
+                "/^aquaproj/*/",
+                "/^actions/*/",
+                "/^aws-actions/*/",
+                "/^google-github-actions/*/",
+                "/^terraform-linters/*/"
             ]
         }
     ]
