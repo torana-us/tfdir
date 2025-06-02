@@ -13,6 +13,6 @@ packages:
   - name: evilmartians/lefthook@v1.11.13
   - name: koalaman/shellcheck@v0.10.0
   - name: mvdan/sh@v3.11.0
-  - name: crate-ci/typos@v1.32.0
+  - name: crate-ci/typos@v1.33.1
   - name: suzuki-shunsuke/ghatm@v0.3.5
   - name: rhysd/actionlint@v1.7.7
