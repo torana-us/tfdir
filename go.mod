@@ -2,7 +2,7 @@ module github.com/torana-us/tfdir
 
 go 1.21.0
 
-toolchain go1.24.2
+toolchain go1.24.4
 
 require (
 	github.com/hashicorp/terraform-config-inspect v0.0.0-20250401063509-d2d12f9a63bb
