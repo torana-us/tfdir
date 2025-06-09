@@ -5,7 +5,7 @@ go 1.21.0
 toolchain go1.24.2
 
 require (
-	github.com/hashicorp/terraform-config-inspect v0.0.0-20250401063509-d2d12f9a63bb
+	github.com/hashicorp/terraform-config-inspect v0.0.0-20250515145901-f4c50e64fd6d
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.20.1
 )
