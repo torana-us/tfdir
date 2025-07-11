@@ -9,8 +9,8 @@ packages:
   - name: suzuki-shunsuke/ghalint@v1.5.1
   - name: gitleaks/gitleaks@v8.27.2
   - name: tamasfe/taplo@0.10.0
-  - name: golangci/golangci-lint@v2.2.1
-  - name: evilmartians/lefthook@v1.12.1
+  - name: golangci/golangci-lint@v2.2.2
+  - name: evilmartians/lefthook@v1.12.2
   - name: koalaman/shellcheck@v0.10.0
   - name: mvdan/sh@v3.12.0
   - name: crate-ci/typos@v1.34.0
