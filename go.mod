@@ -6,7 +6,7 @@ toolchain go1.25.0
 
 require (
 	github.com/hashicorp/terraform-config-inspect v0.0.0-20250828155816-225c06ed5fd9
-	github.com/spf13/cobra v1.9.1
+	github.com/spf13/cobra v1.10.1
 	github.com/spf13/viper v1.20.1
 )
 
@@ -29,7 +29,7 @@ require (
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.12.0 // indirect
 	github.com/spf13/cast v1.7.1 // indirect
-	github.com/spf13/pflag v1.0.6 // indirect
+	github.com/spf13/pflag v1.0.9 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
 	github.com/zclconf/go-cty v1.14.4 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
