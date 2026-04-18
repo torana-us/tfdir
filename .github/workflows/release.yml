@@ -35,7 +35,7 @@ jobs:
         run: |
           git tag ${{ steps.gen_tag.outputs.tag }}
           git push origin ${{ steps.gen_tag.outputs.tag }}
-      - uses: goreleaser/goreleaser-action@e435ccd777264be153ace6237001ef4d979d3a7a # v6
+      - uses: goreleaser/goreleaser-action@e24998b8b67b290c2fa8b7c14fcfa7de2c5c9b8c # v7
         with:
           args: release  --clean
         env:
